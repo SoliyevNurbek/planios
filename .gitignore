@@ -1,0 +1,38 @@
+# macOS
+.DS_Store
+
+# Xcode user data
+xcuserdata/
+*.xcuserdatad/
+*.xcuserstate
+
+# Xcode build outputs
+DerivedData/
+build/
+.build/
+
+# Swift Package Manager
+.swiftpm/
+Packages/
+Package.resolved
+
+# CocoaPods
+Pods/
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output/
+
+# App signing secrets
+*.p12
+*.mobileprovision
+*.cer
+
+# Editors
+.idea/
+.vscode/
+
+# Logs
+*.log
