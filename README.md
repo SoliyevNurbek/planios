@@ -1,109 +1,76 @@
 # Planios
 
-Planios is a native iOS productivity app built with SwiftUI. It is designed around realistic planning, focused execution, and visible daily progress through tasks, reminders, focus sessions, and lightweight statistics.
+Planios is a productivity app focused on realistic planning, protected focus time, and visible progress. This repository contains:
 
-## Overview
+- `Planios/`: the original native iOS SwiftUI app
+- `planios_expo/`: the new Expo / React Native app for Android emulator and physical Android devices
 
-Planios helps users:
-
-- plan tasks for today, tomorrow, and the week ahead
-- assign time blocks, priorities, and repeat rules
-- stay on track with local reminder notifications
-- run dedicated focus sessions with a countdown timer
-- measure consistency with completion metrics and streaks
-
-The project is currently structured as a lightweight MVP with local-first storage and a clean SwiftUI architecture.
-
-## Features
-
-- `Dashboard`: quick view of progress, priorities, and daily momentum
-- `Tasks`: create, edit, filter, complete, and manage scheduled tasks
-- `Focus Mode`: distraction-resistant countdown session tied to a task
-- `Statistics`: weekly completion data, today rate, and streak tracking
-- `Settings`: notification permission handling and demo data reset
-
-## Tech Stack
-
-- `Swift`
-- `SwiftUI`
-- `UserDefaults` for local persistence
-- `UserNotifications` for reminder scheduling
-- `XcodeGen` via [`project.yml`](./project.yml) for project generation
-
-## Project Structure
+## Repository Layout
 
 ```text
 Planios/
-|- App/           # App entry point, root navigation, tab structure
-|- Components/    # Reusable UI components
-|- Managers/      # Notifications and storage logic
-|- Models/        # Domain models and enums
-|- Resources/     # Assets and app resources
-|- Theme/         # Colors and visual styling
-|- ViewModels/    # Screen state and presentation logic
-|- Views/         # Feature screens
-`- Docs/          # Product and release preparation notes
+|- Planios/        # Native iOS SwiftUI source
+|- planios_expo/   # Expo / React Native app
+|- project.yml     # XcodeGen config for the iOS app
+|- README.md
+`- .gitignore
 ```
 
-## Getting Started
+## Expo Version
 
-### Requirements
+The Expo app includes:
 
-- macOS
-- Xcode 15 or later
-- Homebrew
-- XcodeGen
+- dashboard with progress and weekly average
+- task creation, editing, completion, and deletion
+- filters for today, tomorrow, and this week
+- focus mode with countdown timer and guarded exit
+- weekly statistics and streak tracking
+- local persistence with AsyncStorage
+- onboarding overlay for first launch
 
-### Run Locally
+### Stack
 
-1. Install XcodeGen:
+- `Expo`
+- `React Native`
+- `AsyncStorage`
+- `JavaScript`
+
+### Run On Android Emulator
+
+1. Install Android Studio and create an Android emulator.
+2. Install Node.js if needed.
+3. Open terminal in `planios_expo/`.
+4. Install dependencies:
 
 ```bash
-brew install xcodegen
+npm install
 ```
 
-2. Generate the Xcode project from the repository root:
+5. Start Expo:
 
 ```bash
-xcodegen generate
+npx expo start --android
 ```
 
-3. Open the generated project in Xcode:
+If PowerShell blocks `npm`, use:
 
 ```bash
-open Planios.xcodeproj
+npm.cmd install
+npx.cmd expo start --android
 ```
 
-4. Select an iOS Simulator or physical device and run the app.
+## Native iOS Version
 
-## Architecture Notes
+The original iOS app remains available in `Planios/` for Xcode-based development on macOS.
 
-- The app entry point lives in [`Planios/App/PlaniosApp.swift`](./Planios/App/PlaniosApp.swift).
-- Task data is stored locally through [`Planios/Managers/StorageManager.swift`](./Planios/Managers/StorageManager.swift).
-- Notification scheduling is managed in [`Planios/Managers/NotificationManager.swift`](./Planios/Managers/NotificationManager.swift).
-- Project generation is configured in [`project.yml`](./project.yml).
+## Push To GitHub
 
-## Current MVP Scope
-
-- local-only task storage
-- local notifications before and after tasks
-- onboarding and tab-based app flow
-- seeded demo data for first launch
-- completion analytics for the current week
-
-## Roadmap Ideas
-
-- iCloud sync or backend sync
-- calendar integration
-- widgets and Live Activities
-- richer task recurrence options
-- App Store release assets and localization
-
-## Repository Notes
-
-- This repository contains source files and XcodeGen configuration.
-- Generated Xcode user data and build artifacts are intentionally excluded through [`.gitignore`](./.gitignore).
+```bash
+git add .
+git commit -m "Replace Flutter app with Expo React Native version"
+git push origin main
+```
 
 ## License
 
-No license has been added yet. If this repository will be published publicly, add a license before distribution.
+No license has been added yet. Add one before public distribution.

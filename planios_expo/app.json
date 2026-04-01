@@ -1,0 +1,20 @@
+{
+  "expo": {
+    "name": "Planios",
+    "slug": "planios-expo",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#F4F1E8"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "android": {
+      "package": "com.example.planiosexpo"
+    },
+    "plugins": []
+  }
+}
